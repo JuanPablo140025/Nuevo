@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
-// Middleware para que Express entienda JSON
+// Middleware
 app.use(express.json());
 
 // Importar rutas
@@ -11,8 +11,12 @@ const criaturasRoutes = require('./routes/criaturas');
 // Usar las rutas
 app.use('/criaturas', criaturasRoutes);
 
-// Encender el servidor
-const PORT = 3000;
+app.get('/', (req, res) => {
+    res.send('¡Hola! El servidor del calabozo está funcionando correctamente.');
+});
+
+// Usamos process.env.PORT para que Render elija el puerto automáticamente
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`El servidor del calabozo está corriendo en http://localhost:${PORT}`);
+    console.log(`El servidor del calabozo está corriendo en el puerto ${PORT}`);
 });
