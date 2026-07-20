@@ -1,0 +1,24 @@
+### Traer todas las criaturas
+GET http://localhost:3000/criaturas
+
+### Crear una nueva criatura
+POST http://localhost:3000/criaturas
+Content-Type: application/json
+
+{
+    "nombre": "Dragonix",
+    "tipo": "Fuego",
+    "poder": 80,
+    "capturada": false
+}
+
+### Actualizar una criatura (Cambia el 1 por un ID real)
+PUT http://localhost:3000/criaturas/1
+Content-Type: application/json
+
+{
+    "poder": 95
+}
+
+### Eliminar una criatura (Cambia el 1 por un ID real)
+DELETE http://localhost:3000/criaturas/1
